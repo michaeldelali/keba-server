@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  </head>
+  <style>
+    * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  background: #d6dde5;
+  background: -moz-linear-gradient(left, #d7dde5 0%, #d2dbe5 50%, #d7dde5 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, #d7dde5), color-stop(50%, #d2dbe5), color-stop(100%, #d7dde5));
+  background: -webkit-linear-gradient(left, #d7dde5 0%, #d2dbe5 50%, #d7dde5 100%);
+  background: -o-linear-gradient(left, #d7dde5 0%, #d2dbe5 50%, #d7dde5 100%);
+  background: -ms-linear-gradient(left, #d7dde5 0%, #d2dbe5 50%, #d7dde5 100%);
+  background: linear-gradient(to right, #d7dde5 0%, #d2dbe5 50%, #d7dde5 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#d6dde5', endColorstr='#d6dde5', GradientType=1)
+}
+
+.rope {
+  position: relative;
+  margin: 0 auto;
+  width: 900px;
+  height: 200px
+}
+
+.rope img {
+  height: 200px
+}
+
+.rope-left {
+  float: left;
+  margin-left: 150px
+}
+
+.rope-right {
+  float: right;
+  margin-right: 150px
+}
+
+.page1 {
+  position: relative;
+  width: 900px;
+  height: 800px;
+  margin: 0 auto;
+  margin-top: -10px
+}
+
+.plate1 {
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  transform: rotate(45deg);
+  -moz-transition: 0.8s ease-out all;
+  -webkit-transition: 0.8s ease-out all;
+  -o-transition: 0.8s ease-out all;
+  -ms-transition: 0.8s ease-out all;
+  transition: 0.8s ease-out all
+}
+
+.plate1-active {
+  left: -250px;
+  transform: rotate(0deg)
+}
+
+.body-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #2D3A4B;
+  color: #fff;
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.5)
+}
+
+.page1-title {
+  width: 100%;
+  z-index: 99;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  font-size: 160px;
+  text-align: center;
+  font-family: "Oswald";
+  font-weight: 700;
+  letter-spacing: 20px;
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.page1-title-active {
+  font-size: 180px;
+  text-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.page1-desc {
+  z-index: 98;
+  position: absolute;
+  top: 220px;
+  width: 85%;
+  left: 235px;
+  padding: 50px;
+  padding-left: 110px;
+  padding-top: 150px;
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.page1-desc-active {
+  left: 215px;
+  top: 250px;
+  padding-left: 120px;
+  background: rgba(91, 105, 118, 0.9);
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.page1-desc h3 {
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 10px
+}
+
+.page1-desc hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 280px;
+  opacity: 0.5
+}
+
+.page1-desc p {
+  width: 460px;
+  line-height: 40px;
+  font-size: 1.2rem;
+  opacity: 0.8
+}
+
+.page2 {
+  position: relative;
+  width: 900px;
+  height: 800px;
+  margin: 0 auto
+}
+
+.pg2-middle-wrap {
+  position: absolute;
+  top: 50%;
+  margin-top: -250px;
+  left: 0;
+  width: 100%;
+  height: 500px
+}
+
+.pg2-green-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: -15%;
+  right: 0%;
+  background: rgba(205, 211, 95, 0.9);
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.pg2-green-back-active {
+  width: 130%;
+  right: -20%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg2-white-desc {
+  position: absolute;
+  width: 60%;
+  top: 0%;
+  left: 0%;
+  background: #FFF;
+  color: #2D3A4B;
+  text-align: center;
+  -moz-transition: 1s ease-out all;
+  -webkit-transition: 1s ease-out all;
+  -o-transition: 1s ease-out all;
+  -ms-transition: 1s ease-out all;
+  transition: 1s ease-out all
+}
+
+.pg2-white-desc-active {
+  top: -10%;
+  left: -20%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg2-white-desc .hr1 {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+  opacity: 0.4
+}
+
+.pg2-white-desc .hr2 {
+  width: 40%;
+  margin: 0 auto;
+  opacity: 0.4;
+  margin-bottom: 5px
+}
+
+.pg2-white-desc .hr3 {
+  width: 60%;
+  margin: 0 auto;
+  opacity: 0.4
+}
+
+.pg2-white-desc .hr4 {
+  width: 60%;
+  margin: 0 auto;
+  opacity: 0.4;
+  margin-bottom: 5px
+}
+
+.pg2-white-desc .hr5 {
+  width: 40%;
+  margin: 0 auto;
+  opacity: 0.4
+}
+
+.pg2-white-desc .hr6 {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  opacity: 0.4
+}
+
+.pg2-white-desc h3 {
+  color: #D39F8C;
+  margin: 60px;
+  font-size: 2rem
+}
+
+.pg2-white-desc h2 {
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 4rem;
+  letter-spacing: 10px;
+  opacity: 0.8
+}
+
+.pg2-white-desc p {
+  width: 60%;
+  font-size: 1.4rem;
+  opacity: 0.8;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  line-height: 30px
+}
+
+.pg2-photo-wrap {
+  position: absolute;
+  width: 70%;
+  height: 120%;
+  top: -20%;
+  right: 0;
+  background: #333;
+  overflow: hidden;
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.pg2-photo-wrap-active {
+  right: -10%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg2-photo {
+  position: absolute;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background-image: url("https://notbigmuzzy.github.io/codepen/example1/page2.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -moz-transition: 4s ease-out all;
+  -webkit-transition: 4s ease-out all;
+  -o-transition: 4s ease-out all;
+  -ms-transition: 4s ease-out all;
+  transition: 4s ease-out all
+}
+
+.pg2-photo-active {
+  left: -20%
+}
+
+.grapes {
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.grapes-active {
+  left: -250px
+}
+
+.page3 {
+  position: relative;
+  width: 900px;
+  height: 800px;
+  margin: 0 auto
+}
+
+.pg3-middle-wrap {
+  position: absolute;
+  top: 50%;
+  margin-top: -250px;
+  left: 0;
+  width: 100%;
+  height: 500px
+}
+
+.pg3-red-back {
+  position: absolute;
+  width: 100%;
+  height: 115%;
+  top: -20%;
+  left: 0;
+  background: rgba(199, 63, 56, 0.9);
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.pg3-red-back-active {
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4);
+  width: 130%;
+  left: -20%
+}
+
+.pg3-white-desc {
+  position: absolute;
+  width: 60%;
+  bottom: 0;
+  left: 0;
+  background: #FFF;
+  color: #2D3A4B;
+  text-align: center;
+  -moz-transition: 0.4s ease-out all;
+  -webkit-transition: 0.4s ease-out all;
+  -o-transition: 0.4s ease-out all;
+  -ms-transition: 0.4s ease-out all;
+  transition: 0.4s ease-out all
+}
+
+.pg3-white-desc-active {
+  bottom: -10%;
+  left: -10%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg3-white-desc .hr1 {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+  opacity: 0.4
+}
+
+.pg3-white-desc .hr2 {
+  width: 40%;
+  margin: 0 auto;
+  opacity: 0.4;
+  margin-bottom: 5px
+}
+
+.pg3-white-desc .hr3 {
+  width: 60%;
+  margin: 0 auto;
+  opacity: 0.4
+}
+
+.pg3-white-desc .hr4 {
+  width: 60%;
+  margin: 0 auto;
+  opacity: 0.4;
+  margin-bottom: 5px
+}
+
+.pg3-white-desc .hr5 {
+  width: 40%;
+  margin: 0 auto;
+  opacity: 0.4
+}
+
+.pg3-white-desc .hr6 {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  opacity: 0.4
+}
+
+.pg3-white-desc h3 {
+  color: #BA945C;
+  margin: 60px;
+  font-size: 2rem
+}
+
+.pg3-white-desc h2 {
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 4rem;
+  letter-spacing: 10px;
+  opacity: 0.8
+}
+
+.pg3-white-desc p {
+  width: 60%;
+  font-size: 1.4rem;
+  opacity: 0.8;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  line-height: 30px
+}
+
+.pg3-photo-wrap {
+  position: absolute;
+  width: 100%;
+  height: 105%;
+  bottom: 0;
+  right: 0;
+  background: #333;
+  overflow: hidden;
+  -moz-transition: 1s ease-out all;
+  -webkit-transition: 1s ease-out all;
+  -o-transition: 1s ease-out all;
+  -ms-transition: 1s ease-out all;
+  transition: 1s ease-out all
+}
+
+.pg3-photo-wrap-active {
+  width: 100%;
+  right: -20%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg3-photo {
+  position: absolute;
+  left: -20%;
+  width: 120%;
+  height: 100%;
+  background-image: url("https://notbigmuzzy.github.io/codepen/example1/page3.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -moz-transition: 4s ease-out all;
+  -webkit-transition: 4s ease-out all;
+  -o-transition: 4s ease-out all;
+  -ms-transition: 4s ease-out all;
+  transition: 4s ease-out all
+}
+
+.pg3-photo-active {
+  left: 0
+}
+
+.leafs {
+  position: absolute;
+  bottom: 100px;
+  right: 0px;
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.leafs-active {
+  right: -350px
+}
+
+.page4 {
+  position: relative;
+  width: 900px;
+  height: 800px;
+  margin: 0 auto
+}
+
+.pg4-middle-wrap {
+  position: absolute;
+  top: 50%;
+  margin-top: -250px;
+  left: 0;
+  width: 100%;
+  height: 500px
+}
+
+.pg4-bezh-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  background: rgba(252, 219, 136, 0.9);
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.pg4-bezh-back-active {
+  width: 130%;
+  bottom: -15%;
+  right: -20%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg4-white-desc {
+  position: absolute;
+  width: 60%;
+  top: 0;
+  left: 0;
+  background: #FFF;
+  color: #2D3A4B;
+  text-align: center;
+  -moz-transition: 1s ease-out all;
+  -webkit-transition: 1s ease-out all;
+  -o-transition: 1s ease-out all;
+  -ms-transition: 1s ease-out all;
+  transition: 1s ease-out all
+}
+
+.pg4-white-desc-active {
+  width: 60%;
+  top: -10%;
+  left: -20%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg4-white-desc .hr1 {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 40px;
+  opacity: 0.4
+}
+
+.pg4-white-desc .hr2 {
+  width: 40%;
+  margin: 0 auto;
+  opacity: 0.4;
+  margin-bottom: 5px
+}
+
+.pg4-white-desc .hr3 {
+  width: 60%;
+  margin: 0 auto;
+  opacity: 0.4
+}
+
+.pg4-white-desc .hr4 {
+  width: 60%;
+  margin: 0 auto;
+  opacity: 0.4;
+  margin-bottom: 5px
+}
+
+.pg4-white-desc .hr5 {
+  width: 40%;
+  margin: 0 auto;
+  opacity: 0.4
+}
+
+.pg4-white-desc .hr6 {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  opacity: 0.4
+}
+
+.pg4-white-desc h3 {
+  color: #F4AF49;
+  margin: 60px;
+  font-size: 2rem
+}
+
+.pg4-white-desc h2 {
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 4rem;
+  letter-spacing: 10px;
+  opacity: 0.8
+}
+
+.pg4-white-desc p {
+  width: 60%;
+  font-size: 1.4rem;
+  opacity: 0.8;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  line-height: 30px
+}
+
+.pg4-photo-wrap {
+  position: absolute;
+  width: 70%;
+  height: 120%;
+  top: -20%;
+  right: 0;
+  background: #333;
+  overflow: hidden;
+  -moz-transition: 1s ease-out all;
+  -webkit-transition: 1s ease-out all;
+  -o-transition: 1s ease-out all;
+  -ms-transition: 1s ease-out all;
+  transition: 1s ease-out all
+}
+
+.pg4-photo-wrap-active {
+  right: -10%;
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+
+.pg4-photo {
+  position: absolute;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background-image: url("https://notbigmuzzy.github.io/codepen/example1/page4.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  -moz-transition: 4s ease-out all;
+  -webkit-transition: 4s ease-out all;
+  -o-transition: 4s ease-out all;
+  -ms-transition: 4s ease-out all;
+  transition: 4s ease-out all
+}
+
+.pg4-photo-active {
+  left: -20%
+}
+
+.dessert {
+  position: absolute;
+  bottom: 20px;
+  left: 0px;
+  transform: rotate(30deg);
+  -moz-transition: 0.6s ease-out all;
+  -webkit-transition: 0.6s ease-out all;
+  -o-transition: 0.6s ease-out all;
+  -ms-transition: 0.6s ease-out all;
+  transition: 0.6s ease-out all
+}
+
+.dessert-active {
+  left: -300px;
+  transform: rotate(0deg)
+}
+
+.page5 {
+  position: relative;
+  width: 900px;
+  height: 300px;
+  margin: 0 auto;
+  margin-bottom: 200px
+}
+
+.page5 h3 {
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 10px;
+  padding: 100px;
+  background: rgba(91, 105, 118, 0.9);
+  box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.4)
+}
+  </style>
+  <body>
+    <div class="rope"><img src="https://notbigmuzzy.github.io/codepen/example1/rope.png" class="rope-left"><img src="https://notbigmuzzy.github.io/codepen/example1/rope.png" class="rope-right"></div>
+    <div class="page1 page"><img src="https://notbigmuzzy.github.io/codepen/example1/plate1.png" class="plate1">
+      <div class="body-wrap">
+        <h1 class="page1-title">M E N U</h1>
+        <div class="page1-desc">
+          <h3>SEPTEMBAR 9</h3>
+          <br>
+          <hr>
+          <br>
+          <p>Today, our chef will take you on a travel around the world, with an entry from Europe, our best American meat and an authentic dessert from Asia.</p>
+        </div>
+      </div>
+    </div>
+    <div class="page2 page"><img src="https://notbigmuzzy.github.io/codepen/example1/grapes.png" class="grapes">
+      <div class="body-wrap">
+        <div class="pg2-middle-wrap">
+          <div class="pg2-green-back"></div>
+          <div class="pg2-white-desc">
+            <hr class="hr1">
+            <h3>APPETIZERS</h3>
+            <hr class="hr2">
+            <hr class="hr3">
+            <h2>WINE & BRIE</h2>
+            <hr class="hr4">
+            <hr class="hr5">
+            <p>Our most delicious selection of cheeses with wide ranges of wine from our cellar.</p>
+            <hr class="hr6">
+          </div>
+          <div class="pg2-photo-wrap">
+            <div class="pg2-photo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page3 page"><img src="https://notbigmuzzy.github.io/codepen/example1/leafs.png" class="leafs">
+      <div class="body-wrap">
+        <div class="pg3-middle-wrap">
+          <div class="pg3-red-back"></div>
+          <div class="pg3-photo-wrap">
+            <div class="pg3-photo"></div>
+          </div>
+          <div class="pg3-white-desc">
+            <hr class="hr1">
+            <h3>FROM THE GRILL</h3>
+            <hr class="hr2">
+            <hr class="hr3">
+            <h2>BEEF STEAK</h2>
+            <hr class="hr4">
+            <hr class="hr5">
+            <p>Aged for extra flavor & tenderness. Rubbed with our unique blend of spices and slow roasted.</p>
+            <hr class="hr6">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page4 page"><img src="https://notbigmuzzy.github.io/codepen/example1/dessert.png" class="dessert">
+      <div class="body-wrap">
+        <div class="pg4-middle-wrap">
+          <div class="pg4-bezh-back"></div>
+          <div class="pg4-white-desc">
+            <hr class="hr1">
+            <h3>DESERT</h3>
+            <hr class="hr2">
+            <hr class="hr3">
+            <h2>THAI MANGO</h2>
+            <hr class="hr4">
+            <hr class="hr5">
+            <p>This wonderful and authentic Thai dessert comes with a sweet, sticky rice and a special dressing.</p>
+            <hr class="hr6">
+          </div>
+          <div class="pg4-photo-wrap">
+            <div class="pg4-photo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page5 page">
+      <div class="body-wrap">
+        <h3>GLUTEN FREE & VEGAN AVAILABLE</h3></div>
+    </div>
+  </body>
+  <script>
+    $(window).scroll(function () {
+  var scrollPosition = $(this).scrollTop();
+  var halfWindowheight = $(window).height() / 2;
+  var page1Top = 0;
+  var page2Top = $(".page2").offset().top - halfWindowheight;
+  var page3Top = $(".page3").offset().top - halfWindowheight;
+  var page4Top = $(".page4").offset().top - halfWindowheight;
+
+  if (scrollPosition > page1Top && scrollPosition < page2Top) {
+    $(".page1-title").addClass("page1-title-active");
+    $(".page1-desc").addClass("page1-desc-active");
+    $(".plate1").addClass("plate1-active");
+    $(".pg2-green-back").removeClass("pg2-green-back-active");
+    $(".pg2-white-desc").removeClass("pg2-white-desc-active");
+    $(".pg2-photo-wrap").removeClass("pg2-photo-wrap-active");
+    $(".pg2-photo").removeClass("pg2-photo-active");
+    $(".grapes").removeClass("grapes-active");
+    $(".pg3-red-back").removeClass("pg3-red-back-active");
+    $(".pg3-white-desc").removeClass("pg3-white-desc-active");
+    $(".pg3-photo-wrap").removeClass("pg3-photo-wrap-active");
+    $(".pg3-photo").removeClass("pg3-photo-active");
+    $(".leafs").removeClass("leafs-active");
+    $(".pg4-bezh-back").removeClass("pg4-bezh-back-active");
+    $(".pg4-white-desc").removeClass("pg4-white-desc-active");
+    $(".pg4-photo-wrap").removeClass("pg4-photo-wrap-active");
+    $(".pg4-photo").removeClass("pg4-photo-active");
+    $(".dessert").removeClass("dessert-active");
+  } else if (scrollPosition > page2Top && scrollPosition < page3Top) {
+    $(".pg2-green-back").addClass("pg2-green-back-active");
+    $(".pg2-white-desc").addClass("pg2-white-desc-active");
+    $(".pg2-photo-wrap").addClass("pg2-photo-wrap-active");
+    $(".pg2-photo").addClass("pg2-photo-active");
+    $(".grapes").addClass("grapes-active");
+    $(".page1-title").removeClass("page1-title-active");
+    $(".page1-desc").removeClass("page1-desc-active");
+    $(".plate1").removeClass("plate1-active");
+    $(".body-wrap").removeClass("body-wrap-active");
+    $(".pg3-red-back").removeClass("pg3-red-back-active");
+    $(".pg3-white-desc").removeClass("pg3-white-desc-active");
+    $(".pg3-photo-wrap").removeClass("pg3-photo-wrap-active");
+    $(".pg3-photo").removeClass("pg3-photo-active");
+    $(".leafs").removeClass("leafs-active");
+    $(".pg4-bezh-back").removeClass("pg4-bezh-back-active");
+    $(".pg4-white-desc").removeClass("pg4-white-desc-active");
+    $(".pg4-photo-wrap").removeClass("pg4-photo-wrap-active");
+    $(".pg4-photo").removeClass("pg4-photo-active");
+    $(".dessert").removeClass("dessert-active");
+  } else if (scrollPosition > page3Top && scrollPosition < page4Top) {
+    $(".pg3-red-back").addClass("pg3-red-back-active");
+    $(".pg3-white-desc").addClass("pg3-white-desc-active");
+    $(".pg3-photo-wrap").addClass("pg3-photo-wrap-active");
+    $(".pg3-photo").addClass("pg3-photo-active");
+    $(".leafs").addClass("leafs-active");
+    $(".page1-title").removeClass("page1-title-active");
+    $(".page1-desc").removeClass("page1-desc-active");
+    $(".plate1").removeClass("plate1-active");
+    $(".pg2-green-back").removeClass("pg2-green-back-active");
+    $(".pg2-white-desc").removeClass("pg2-white-desc-active");
+    $(".pg2-photo-wrap").removeClass("pg2-photo-wrap-active");
+    $(".pg2-photo").removeClass("pg2-photo-active");
+    $(".grapes").removeClass("grapes-active");
+    $(".pg4-bezh-back").removeClass("pg4-bezh-back-active");
+    $(".pg4-white-desc").removeClass("pg4-white-desc-active");
+    $(".pg4-photo-wrap").removeClass("pg4-photo-wrap-active");
+    $(".pg4-photo").removeClass("pg4-photo-active");
+    $(".dessert").removeClass("dessert-active");
+  } else if (scrollPosition > page4Top) {
+    $(".pg4-bezh-back").addClass("pg4-bezh-back-active");
+    $(".pg4-white-desc").addClass("pg4-white-desc-active");
+    $(".pg4-photo-wrap").addClass("pg4-photo-wrap-active");
+    $(".pg4-photo").addClass("pg4-photo-active");
+    $(".dessert").addClass("dessert-active");
+    $(".page1-title").removeClass("page1-title-active");
+    $(".page1-desc").removeClass("page1-desc-active");
+    $(".plate1").removeClass("plate1-active");
+    $(".pg2-green-back").removeClass("pg2-green-back-active");
+    $(".pg2-white-desc").removeClass("pg2-white-desc-active");
+    $(".pg2-photo-wrap").removeClass("pg2-photo-wrap-active");
+    $(".pg2-photo").removeClass("pg2-photo-active");
+    $(".grapes").removeClass("grapes-active");
+    $(".pg3-red-back").removeClass("pg3-red-back-active");
+    $(".pg3-white-desc").removeClass("pg3-white-desc-active");
+    $(".pg3-photo-wrap").removeClass("pg3-photo-wrap-active");
+    $(".pg3-photo").removeClass("pg3-photo-active");
+    $(".leafs").removeClass("leafs-active");
+  }
+});
+
+  </script>
+</html>
