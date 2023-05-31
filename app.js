@@ -29,6 +29,8 @@ var refreshRouter = require('./routes/refresh')
 var menuRouter = require('./routes/menu')
 var orderRouter = require('./routes/orders')
 var tableRouter = require('./routes/table')
+var branchRouter = require('./routes/branch')
+var customerRouter = require('./routes/customer')
 
 var app = express();
 
@@ -61,6 +63,7 @@ app.use('/login',loginRouter)
 app.use('/logout',logoutRouter)
 app.use('/signup',signupRouter)
 app.use('/refresh',refreshRouter)
+app.use('/customer',customerRouter)
 
 // app.use('/profile',passport.authenticate('jwt',{session:false}),profileRouter);
 
@@ -71,6 +74,7 @@ app.use('/profile',profileRouter);
 app.use('/menu',menuRouter);
 app.use('/orders',orderRouter)
 app.use('/tables',tableRouter)
+app.use('/branch',branchRouter)
 
 // Error Handler for 404
 app.all('*', (req, res) => {

@@ -1,56 +1,81 @@
-const {DataTypes } = require('sequelize')
+const { DataTypes } = require('sequelize')
 
+// restaurantId: '',
+// branchId: '',
+// name: "",
+// address: "",
+// openTime: "",
+// closeTime: "",
+// openDays: "",
+// phone: "",
+// logo: "",
+// image: "",
+// paymentMethods:[],
+// tableNumber: ''
 
-function model(sequelize){
-const attributes = {
-  branchId:{
-    type:DataTypes.INTEGER,
-    autoIncrement:true,
-    primaryKey:true,
-  },
-  branchName:{
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  restaurantId:{
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  address:{
-    type: DataTypes.STRING,
-    allowNull: false
-  },
-  openTime:{
-    type:DataTypes.TIME,
-  },
-  closeTime:{
-    type:DataTypes.TIME,
- },
-  phone:{
-    type:DataTypes.STRING,
-  },
-  logo:{
-    type:DataTypes.STRING,
-  },
-  branchImage:{
-    type:DataTypes.STRING,  
-  },
-    branchDescription:{
-    type:DataTypes.STRING,
+function model(sequelize) {
+  const attributes = {
+    branchId: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true,
+      primaryKey: true,
     },
-    branchStatus:{
-    type:DataTypes.BOOLEAN,
-    defaultValue:true
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true
     },
-    branchRating:{
-    type:DataTypes.INTEGER,
-    defaultValue:5
+    restaurantId: {
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
-    branchReview:{ 
-    type:DataTypes.STRING,
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    email: {
+      type: DataTypes.STRING,
+    },
+    openTime: {
+      type: DataTypes.STRING,
+    },
+    openDays: {
+      type: DataTypes.STRING,
+    },
+    phone: {
+      type: DataTypes.STRING,
+    },
+    logo: {
+      type: DataTypes.STRING,
+    },
+    logoBlurHash: {
+      type: DataTypes.STRING,
+    },
+    banner: {
+      type: DataTypes.STRING,
+    },
+    bannerBlurHash: {
+      type: DataTypes.STRING,
+    },
+    description: {
+      type: DataTypes.STRING,
+    },
+    status: {
+      type: DataTypes.ENUM,
+      values: ['opened', 'closed']
+    },
+    paymentMethods: {
+      type: DataTypes.JSON
+    },
+    rating: {
+      type: DataTypes.INTEGER,
+      defaultValue: 5
+    },
+    review: {
+      type: DataTypes.STRING,
     }
-}
-  return sequelize.define('branch',attributes)
+  }
+  return sequelize.define('branch', attributes)
 }
 
 module.exports = model

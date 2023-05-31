@@ -2,7 +2,8 @@ const db = require('../models/db');
 
 
 const addMenu = async (req, res, next) => {
-  const image =  req.file.filename;
+  const image =  req.files[0].originalname;
+  console.log("Image Details: ", image)
 
   try {
     const { name, price, description, quantity, category, restaurantId, userId, branchId, view } = req.body;

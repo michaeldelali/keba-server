@@ -138,3 +138,49 @@ notNull Violation: menu.branchId cannot be null
 20230412	13:04:09	eb685ca2-b33b-425b-9f26-e17d02c925b0	SequelizeUniqueConstraintError: Validation error
 20230412	13:04:14	528f842f-401a-48b7-842f-303f8dee3aa3	SequelizeUniqueConstraintError: Validation error
 20230412	13:05:13	84c10f3e-26a0-410d-88f2-e9ac55252f42	SequelizeUniqueConstraintError: Validation error
+20230517	10:58:01	01ec0372-e5df-4e04-b415-0fca3b70a6e5	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	10:59:19	77046761-d8cb-49c4-a7c6-d572091f36f2	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	10:59:48	f3feab05-bb1a-4a5d-9e9a-b83709d5de93	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	11:16:08	48f5d832-ac01-45b5-8fcf-67ed0da59e91	MulterError: Unexpected field
+20230517	11:48:32	d6e437b2-6c94-4eda-9ce8-beee459721e3	MulterError: Unexpected field
+20230517	12:37:51	a4cef90b-3ac3-4803-b221-8a987f0a5747	Error: Cannot set headers after they are sent to the client
+20230517	12:38:51	e7814c89-26a8-4815-8156-e1c6e555c26c	SequelizeUniqueConstraintError: Validation error
+20230517	12:39:22	1f180ccf-9014-410f-80e3-1a48472ccc1e	SequelizeUniqueConstraintError: Validation error
+20230517	12:40:21	edc2a6bc-0a6d-4d95-9a89-15c7bc0236a2	SequelizeUniqueConstraintError: Validation error
+20230517	12:42:20	8d825e34-1fda-4f00-a1d1-3887fc43034e	SequelizeUniqueConstraintError: Validation error
+20230517	12:42:47	ad919aaa-7e56-4d3a-925f-6bd200beb8f0	SequelizeUniqueConstraintError: Validation error
+20230517	12:42:55	6f7ef84d-2325-470f-a157-379afe0cbc2d	SequelizeUniqueConstraintError: Validation error
+20230517	12:55:59	ed3ce6a9-3119-4656-90e2-0f5935969a12	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	12:57:32	eab54d29-3e59-44e0-b5ed-6e759ff50a70	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	12:59:54	0f594611-2b60-4005-92a5-9bd64d0d8d78	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	13:00:55	0ee6b4ce-ddfe-4ed7-82d8-42f1720f8443	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	13:02:27	227dd21b-de42-4c14-9efd-0bf745a6ea5d	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	13:03:40	3dfb69c4-71c3-4ab9-ae58-4f26526ee53b	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	13:05:51	ee75c401-1d87-4275-870b-1db1c562f4e8	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	13:06:34	da686635-f946-405a-80e8-32ebe2a0d15f	SequelizeUniqueConstraintError: Validation error
+20230517	13:20:27	66e2d1eb-bb4b-4ff5-8eb5-3fcd45c1dedf	SequelizeValidationError: notNull Violation: branch.name cannot be null,
+notNull Violation: branch.restaurantId cannot be null,
+notNull Violation: branch.address cannot be null
+20230517	13:58:12	000956ca-eb49-4393-85e8-4aeab1ad55d4	SequelizeDatabaseError: Unknown column 'name' in 'field list'
+20230517	14:09:19	2c5304d1-64de-47e3-b64f-91745815e4ef	SequelizeUniqueConstraintError: Validation error
+20230517	14:09:22	7187e8e1-87ee-43ff-8a7d-b7f84e38878c	SequelizeUniqueConstraintError: Validation error
